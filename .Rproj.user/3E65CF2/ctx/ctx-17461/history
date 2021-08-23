@@ -1,0 +1,512 @@
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+) %>%
+animation_opts(frame=2e4, transition = 2e4) %>%
+layout(xaxis = list(title = '<b>Tiempo (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+plResiduales1
+plResiduales1 <- dfResiduales2 %>%
+plot_ly(x = ~time, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = loessResiduales1, x=~time, y=~pred,
+frame=~name,
+type = "scatter", mode='lines',
+color = I('blue'), symbols = NULL) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+) %>%
+animation_opts(frame=2e4, transition = 2e4) %>%
+layout(xaxis = list(title = '<b>Tiempo (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+plResiduales1
+plResiduales1 <- dfResiduales2 %>%
+plot_ly(x = ~time, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = loessResiduales1, x=~time, y=~pred,
+frame=~name,
+type = "scatter", mode='lines',
+color = I('blue'), symbols = NA) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+) %>%
+animation_opts(frame=2e4, transition = 2e4) %>%
+layout(xaxis = list(title = '<b>Tiempo (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+plResiduales1
+plResiduales1 <- dfResiduales2 %>%
+plot_ly(x = ~time, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = loessResiduales1, x=~time, y=~pred,
+frame=~name,
+type = "scatter", mode='lines',
+color = I('blue'), symbols = NA, inherit = FALSE) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+) %>%
+animation_opts(frame=2e4, transition = 2e4) %>%
+layout(xaxis = list(title = '<b>Tiempo (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+plResiduales1
+plResiduales1 <- dfResiduales2 %>%
+plot_ly(x = ~time, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = loessResiduales1, x=~time, y=~pred,
+frame=~name,
+type = "scatter", mode='lines',
+color = I('blue'), inherit = FALSE) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+) %>%
+animation_opts(frame=2e4, transition = 2e4) %>%
+layout(xaxis = list(title = '<b>Tiempo (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+plResiduales1
+plResiduales1 <- dfResiduales2 %>%
+plot_ly(x = ~time, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = loessResiduales1, x=~time, y=~pred,
+frame=~name,
+type = "scatter", mode='lines',
+color = I('blue'), symbol = NULL) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+) %>%
+animation_opts(frame=2e4, transition = 2e4) %>%
+layout(xaxis = list(title = '<b>Tiempo (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+plResiduales1
+loessResiduales1
+loessResiduales1
+# LOESS Residuales vs tiempo
+loessResiduales1 <- dfResiduales2 %>%
+group_by(name) %>%
+nest() %>%
+mutate(res1 = map(data, ~ loess(value ~ time, data = .x)),
+pred = map2(res1, data, ~ tibble(pred = predict(.x), time = .y$time))) %>%
+unnest(pred) %>%
+select(-data, -res1)
+# LOESS Residuales vs tiempo
+loessResiduales1 <- dfResiduales2 %>%
+group_by(name) %>%
+nest() %>%
+mutate(res1 = map(data, ~ loess(value ~ time, data = .x)),
+pred = map2(res1, data, ~ tibble(pred = predict(.x), time = .y$time))) %>%
+unnest(pred) %>%
+select(-data, -res1) %>%
+arrange(name, time)
+plResiduales1 <- dfResiduales2 %>%
+plot_ly(x = ~time, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = loessResiduales1, x=~time, y=~pred,
+frame=~name,
+type = "scatter", mode='lines',
+color = I('blue'), symbol = NULL) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+) %>%
+animation_opts(frame=2e4, transition = 2e4) %>%
+layout(xaxis = list(title = '<b>Tiempo (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+plResiduales1
+plResiduales1 <- dfResiduales2 %>%
+plot_ly(x = ~time, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = loessResiduales1, x=~time, y=~pred,
+frame=~name,
+type = "scatter", mode='lines', linetype = I('dot')
+color = I('blue'), symbol = NULL) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+) %>%
+animation_opts(frame=2e4, transition = 2e4) %>%
+layout(xaxis = list(title = '<b>Tiempo (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+plResiduales1
+plResiduales1 <- dfResiduales2 %>%
+plot_ly(x = ~time, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = loessResiduales1, x=~time, y=~pred,
+frame=~name,
+type = "scatter", mode='lines', linetype = I('dot'),
+color = I('blue'), symbol = NULL) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+) %>%
+animation_opts(frame=2e4, transition = 2e4) %>%
+layout(xaxis = list(title = '<b>Tiempo (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+plResiduales1
+htmlwidgets::saveWidget(plResiduales,
+file.path('figures', '010_residualesComparacion.html'),
+libdir = 'plotly')
+saveRDS(plResiduales,
+file.path('figures', '010_residualesComparacion.rds'))
+plResiduales1 <- dfResiduales2 %>%
+plot_ly(x = ~time, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = loessResiduales1, x=~time, y=~pred,
+frame=~name,
+type = "scatter", mode='lines', linetype = I('dot'),
+color = I('blue'), symbol = NULL) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+) %>%
+animation_opts(frame=2e4, transition = 2e4) %>%
+layout(xaxis = list(title = '<b>Tiempo (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+plResiduales1
+htmlwidgets::saveWidget(plResiduales1,
+file.path('figures', '010_residualesComparacion.html'),
+libdir = 'plotly')
+subplot(plResiduales1, plResiduales1)
+plResiduales1 <- dfResiduales2 %>%
+plot_ly(x = ~time, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = loessResiduales1, x=~time, y=~pred,
+frame=~name,
+type = "scatter", mode='lines', linetype = I('dot'),
+color = I('blue'), symbol = NULL) %>%
+animation_opts(frame=2e4, transition = 2e4) %>%
+layout(xaxis = list(title = '<b>Tiempo (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+subplot(plResiduales1, plResiduales1) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+)
+subplot(plResiduales1, plResiduales1) %>%
+animation_opts(frame=2e4, transition = 2e4) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+)
+subplot(plResiduales1, plResiduales1) %>%
+animation_opts(frame=2e1, transition = 2e1) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+)
+subplot(plResiduales1, plResiduales1) %>%
+animation_opts(frame=2e2, transition = 2e2) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+)
+subplot(plResiduales1, plResiduales1) %>%
+animation_opts(frame=2e3, transition = 2e3) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+)
+dfResiduales2
+plResiduales2 <- dfResiduales2 %>%
+plot_ly(x = ~prediction_pwRes, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = loessResiduales1, x=~time, y=~pred,
+frame=~name,
+type = "scatter", mode='lines', linetype = I('dot'),
+color = I('blue'), symbol = NULL) %>%
+layout(xaxis = list(title = '<b>Tiempo (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+subplot(plResiduales1, plResiduales1) %>%
+animation_opts(frame=2e3, transition = 2e3) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+)
+# LOESS Residuales vs tiempo
+loessResiduales1 <- dfResiduales2 %>%
+group_by(name) %>%
+nest() %>%
+mutate(res1 = map(data, ~ loess(value ~ time, data = .x)),
+res2 = map(data, ~ loess(value ~ prediction_pwRes, data = .x)),
+pred = pmap(
+list(res1, res2, data),
+function(x, y, z) tibble(time = z$time,
+pwPrediccion = z$prediction_pwRes,
+pred1 = .x,
+pred2 = .y))) %>%
+unnest(pred) %>%
+select(-data, -res1) %>%
+arrange(name, time)
+q
+# LOESS Residuales vs tiempo
+loessResiduales1 <- dfResiduales2 %>%
+group_by(name) %>%
+nest() %>%
+mutate(res1 = map(data, ~ loess(value ~ time, data = .x)),
+res2 = map(data, ~ loess(value ~ prediction_pwRes, data = .x)),
+pred = pmap(
+list(res1, res2, data),
+function(x, y, z) tibble(time = z$time,
+pwPrediccion = z$prediction_pwRes,
+pred1 = x,
+pred2 = y))) %>%
+unnest(pred) %>%
+select(-data, -res1) %>%
+arrange(name, time)
+dfResiduales2 %>%
+group_by(name) %>%
+nest() %>%
+mutate(res1 = map(data, ~ loess(value ~ time, data = .x)),
+res2 = map(data, ~ loess(value ~ prediction_pwRes, data = .x)),
+pred = pmap(
+list(res1, res2, data),
+function(x, y, z) tibble(time = z$time,
+pwPrediccion = z$prediction_pwRes,
+pred1 = x,
+pred2 = y)))
+# LOESS Residuales vs tiempo
+loessResiduales1 <- dfResiduales2 %>%
+group_by(name) %>%
+nest() %>%
+mutate(res1 = map(data, ~ loess(value ~ time, data = .x)),
+res2 = map(data, ~ loess(value ~ prediction_pwRes, data = .x)),
+pred = pmap(
+list(res1, res2, data),
+function(x, y, z) tibble(time = z$time,
+pwPrediccion = z$prediction_pwRes,
+pred1 = predict(x),
+pred2 = predict(y)))) %>%
+unnest(pred) %>%
+select(-data, -res1) %>%
+arrange(name, time)
+loessResiduales1
+plResiduales1 <- dfResiduales2 %>%
+plot_ly(x = ~time, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = loessResiduales1, x=~time, y=~pred,
+frame=~name,
+type = "scatter", mode='lines', linetype = I('dot'),
+color = I('blue'), symbol = NULL) %>%
+layout(xaxis = list(title = '<b>Tiempo (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+plResiduales1 <- dfResiduales2 %>%
+plot_ly(x = ~time, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = loessResiduales1, x=~time, y=~pred1,
+frame=~name,
+type = "scatter", mode='lines', linetype = I('dot'),
+color = I('blue'), symbol = NULL) %>%
+layout(xaxis = list(title = '<b>Tiempo (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+plResiduales1
+plResiduales2 <- dfResiduales2 %>%
+plot_ly(x = ~prediction_pwRes, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = arrange(loessResiduales1, pwPrediccion),
+x=~pwPrediccion, y=~pred2,
+frame=~name,
+type = "scatter", mode='lines', linetype = I('dot'),
+color = I('blue'), symbol = NULL) %>%
+layout(xaxis = list(title = '<b>Tiempo (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+subplot(plResiduales1, plResiduales1) %>%
+animation_opts(frame=2e3, transition = 2e3) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+)
+subplot(plResiduales1, plResiduales2) %>%
+animation_opts(frame=2e3, transition = 2e3) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+)
+subplot(plResiduales1, plResiduales2, shareX = F) %>%
+animation_opts(frame=2e3, transition = 2e3) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+)
+subplot(plResiduales1, plResiduales2, shareX = F, shareY = F) %>%
+animation_opts(frame=2e3, transition = 2e3) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+)
+plResiduales <- subplot(plResiduales1, plResiduales2,
+shareX = F, shareY = F) %>%
+animation_opts(frame=2e3, transition = 2e3) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+)
+plResiduales
+htmlwidgets::saveWidget(plResiduales,
+file.path('figures', '010_residualesComparacion.html'),
+libdir = 'plotly')
+subplot(plResiduales1, plResiduales2,
+shareX = F, shareY = F)
+plResiduales <- subplot(plResiduales1, plResiduales2,
+shareX = FALSE, shareY = FALSE) %>%
+animation_opts(frame=2e3, transition = 2e3) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+)
+plResiduales2 <- dfResiduales2 %>%
+plot_ly(x = ~prediction_pwRes, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = arrange(loessResiduales1, pwPrediccion),
+x=~pwPrediccion, y=~pred2,
+frame=~name,
+type = "scatter", mode='lines', linetype = I('dot'),
+color = I('blue'), symbol = NULL) %>%
+layout(xaxis = list(title = '<b>PPRED (mg/L) (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+plResiduales2 <- dfResiduales2 %>%
+plot_ly(x = ~prediction_pwRes, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = arrange(loessResiduales1, pwPrediccion),
+x=~pwPrediccion, y=~pred2,
+frame=~name,
+type = "scatter", mode='lines', linetype = I('dot'),
+color = I('blue'), symbol = NULL) %>%
+layout(xaxis = list(title = '<b>PPRED (mg/L)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+plResiduales1 <- dfResiduales2 %>%
+plot_ly(x = ~time, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = loessResiduales1, x=~time, y=~pred1,
+frame=~name,
+type = "scatter", mode='lines', linetype = I('dot'),
+color = I('blue'), symbol = NULL) %>%
+layout(xaxis = list(title = '<b>Tiempo (h)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+plResiduales2 <- dfResiduales2 %>%
+plot_ly(x = ~prediction_pwRes, y = ~value, frame = ~name, type = 'scatter',
+color = ~ID, symbol = ~DF, symbols = c('circle', 'circle-open'),
+mode = 'markers', showlegend = F
+) %>%
+add_trace(data = arrange(loessResiduales1, pwPrediccion),
+x=~pwPrediccion, y=~pred2,
+frame=~name,
+type = "scatter", mode='lines', linetype = I('dot'),
+color = I('blue'), symbol = NULL) %>%
+layout(xaxis = list(title = '<b>PPRED (mg/L)</b>'),
+yaxis = list(title = '<b>Residual</b>')) %>%
+config(displayModeBar = FALSE)
+plResiduales <- subplot(plResiduales1, plResiduales2,
+shareX = FALSE, shareY = FALSE) %>%
+animation_opts(frame=2e3, transition = 2e3) %>%
+animation_slider(
+currentvalue = list(prefix = "Residual: ", font = list(color="blue"),
+xanchor='left', offset=2),
+steps = steps,
+pad = list(t=60, r=100, l=100)
+)
+plResiduales
+plResiduales
+htmlwidgets::saveWidget(plResiduales,
+file.path('figures', '010_residualesComparacion.html'),
+libdir = 'plotly')
+saveRDS(plResiduales,
+file.path('figures', '010_residualesComparacion.rds'))
+require(htmltools)

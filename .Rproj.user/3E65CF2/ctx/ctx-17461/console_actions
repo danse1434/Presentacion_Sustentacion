@@ -1,0 +1,14 @@
+{
+    "type": [
+        0,
+        1,
+        3,
+        2
+    ],
+    "data": [
+        "> ",
+        "require(htmltools)",
+        "Loading required package: htmltools\n",
+        "\nRestarting R session...\n\n"
+    ]
+}
