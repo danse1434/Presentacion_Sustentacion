@@ -66,11 +66,37 @@
   font-size: 0.4em;
 }
 
+.reveal blockquote{
+  width: 90%;
+  font-style: normal;
+  background: rgb(91 52 209 / 15%);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 1rem;
+}
+
 /* Captions */
 caption, figcaption, p.caption {
   color: rgb(66,87,158);
   font-weight: 500;
-  size: 0.8em;
+  font-size: 0.5em;
+  background-color: rgb(255,255,255);
+  max-width: 90%;
+  padding: 10px;
+  border-radius: 1rem;
+  
+  /* Centrar contenedor de texto */
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+p.caption:before{
+  text-align: center;
 }
 
 footer.container-fluid{
@@ -142,6 +168,9 @@ div.contentfooterder{
 /* Las dos columnas */
 .row{
   display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+  gap: 50px;
 }
 .column{
   flex: 1;
