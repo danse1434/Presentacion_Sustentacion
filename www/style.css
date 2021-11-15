@@ -1,4 +1,4 @@
-p, i{
+p, i, li{
   text-align: justify;
 }
 
@@ -116,3 +116,4 @@ caption {
   max-width: 20rem;
   white-space: normal;
 }
+
