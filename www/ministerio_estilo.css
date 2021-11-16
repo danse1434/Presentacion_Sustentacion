@@ -167,13 +167,16 @@ div.contentfooterder{
 
 /* Las dos columnas */
 .row{
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template: 100% / 50% 1fr;
   align-content: space-between;
-  gap: 50px;
+  justify-content: space-between;
+  align-items: center;
+  grid-gap: 0px 2rem;
+  justify-items: center;
 }
 .column{
-  flex: 1;
+  
 }
 
 
@@ -212,4 +215,13 @@ div#refs {
 
 div.csl-entry{
   display: flex;
+}
+div.csl-right-inline{
+  text-align: justify;
+}
+
+/* Listado */
+
+ul.listado{
+  font-size: 0.4em;
 }
