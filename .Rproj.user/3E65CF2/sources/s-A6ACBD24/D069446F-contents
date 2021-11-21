@@ -222,9 +222,8 @@ div#refs {
 }
 
 div.csl-entry{
-  /*display: flex;*/
+  display: flex;
   padding-bottom: 10pt;
-  text-align: justify;
 }
 
 div.csl-right-inline{
@@ -238,12 +237,4 @@ div.csl-right-inline{
 }
 .listado li{
   font-size: inherit !important;
-}
-
-
-/* Números de diapositivas */
-.reveal .slide-number{
-  top: 8px !important;
-  bottom: initial !important;
-  font-size: 16px;
 }
