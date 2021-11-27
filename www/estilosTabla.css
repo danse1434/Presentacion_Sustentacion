@@ -162,9 +162,13 @@
 /* Tablas de selección de modelos */
 table#selecModelo > thead {
     background:#000000;
-    color:white
+    color:white;
+    
 }
 
 table#selecModelo > tbody > tr:nth-child(even) {
-    background:#dcdcdc
+    background:#dcdcdc;
+}
+table#selecModelo > tbody, thead{
+  font-size: 22px;
 }
