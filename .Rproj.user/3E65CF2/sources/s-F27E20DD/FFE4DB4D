@@ -1,26 +1,27 @@
 {
-    "id": "2800F385",
-    "path": "~/(Proyecto)_Estudio_PKPD/Sustentacion/www/estilosBase.css",
-    "project_path": "www/estilosBase.css",
+    "id": "FFE4DB4D",
+    "path": "~/(Proyecto)_Estudio_PKPD/Sustentacion/www/estilosTabla.css",
+    "project_path": "www/estilosTabla.css",
     "type": "css",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1637724527414.0,
+    "created": 1638032548113.0,
     "source_on_save": false,
     "relative_order": 2,
     "properties": {
+        "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "228,18",
-        "scrollLine": "0"
+        "cursorPosition": "162,17",
+        "scrollLine": "116"
     },
     "folds": "",
-    "lastKnownWriteTime": 1637726133,
+    "lastKnownWriteTime": 1638032584,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1637726133767,
+    "last_content_update": 1638032584816,
     "read_only": false,
     "read_only_alternatives": []
 }
